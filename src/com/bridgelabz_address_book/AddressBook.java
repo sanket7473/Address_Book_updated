@@ -3,7 +3,9 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 
+//AddressBook class contains addContactsFromUserInput() addContacts() and showContacts() methods..
 public class AddressBook {
+    //created a arraylist to store a object of class
     private List<Contacts> Contactlist =new ArrayList<>();
 
     // addContactsFromUserInput To take a user input for contacts.
@@ -41,6 +43,48 @@ public class AddressBook {
     private void addContacts(Contacts contacts) {
         Contactlist.add(contacts);
     }
+    //modifyContactByName() method is used to search first and last name and edit the contact
+    public void modifyContactByName(String firstName, String lastName) {
+        Scanner scanner = new Scanner(System.in);
+        for (Contacts contact : Contactlist) {
+            //It will check for valid firstname and lastname
+            if (contact.getFirstName().equals(firstName) && contact.getLastName().equals(lastName)) {
+                System.out.println("Enter New Address:");
+                String address = scanner.nextLine();
+
+                System.out.println("Enter New City:");
+                String city = scanner.nextLine();
+
+                System.out.println("Enter New State:");
+                String state = scanner.nextLine();
+
+                System.out.println("Enter New Email Id:");
+                String email = scanner.nextLine();
+
+                System.out.println("Enter New Zip:");
+                int zipcode = scanner.nextInt();
+
+                System.out.println("Enter New Phone Number:");
+                String phoneNumber = scanner.next();
+
+                contact.setAddress(address);
+                contact.setCity(city);
+                contact.setState(state);
+                contact.setEmail(email);
+                contact.setZipcode(zipcode);
+                contact.setPhoneNumber(phoneNumber);
+
+                System.out.println("Contact modified successfully.");
+                showContacts();
+
+            }
+            else
+            {
+                System.out.println("Contact not found.");
+            }
+        }
+
+    }
 
     //showContacts method is used to display
     private void showContacts()
@@ -52,6 +96,7 @@ public class AddressBook {
         }
     }
 
+
     public static void main(String[] args)
 
     {
@@ -62,6 +107,16 @@ public class AddressBook {
         s1.addContactsFromUserInput();
         //called a method showContacts
         s1.showContacts();
+
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Enter First Name to Search");
+        String firstName = scanner.nextLine();
+        System.out.println("Enter Last Name To Search:");
+
+        String lastName = scanner.nextLine();
+
+        s1.modifyContactByName(firstName, lastName);
+
     }
 
 }
