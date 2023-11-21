@@ -1,7 +1,10 @@
 package com.bridgelabz_address_book;
 
-public class Contacts {
-//Added UC1 contacts for the firstname,lastname,address,city,state,zip,phone number and email
+
+
+//UC1: Declared contacts for the firstname,lastname,address,city,state,zip,phone number and email
+ public class Contacts {
+
     private String firstName;
     private String lastName;
     private String address;
@@ -11,6 +14,7 @@ public class Contacts {
     private String phoneNumber;
     private String email;
 
+    //Initialized the contacts values
     public Contacts(String firstName, String lastName, String address, String city, String state, int zipcode, String phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -22,6 +26,7 @@ public class Contacts {
         this.email = email;
     }
 
+    //Get Nethods to get the values
     public String getFirstName() {
         return firstName;
     }
@@ -54,6 +59,7 @@ public class Contacts {
         return email;
     }
 
+    //Set methods to set a values
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
