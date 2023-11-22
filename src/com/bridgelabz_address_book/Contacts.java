@@ -1,9 +1,8 @@
 package com.bridgelabz_address_book;
 
 
-
 //UC1: Declared contacts for the firstname,lastname,address,city,state,zip,phone number and email
- public class Contacts {
+public class Contacts {
 
     private String firstName;
     private String lastName;
@@ -31,61 +30,61 @@ package com.bridgelabz_address_book;
         return firstName;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public int getZipcode() {
-        return zipcode;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
     //Set methods to set a values
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getCity() {
+        return city;
     }
 
     public void setCity(String city) {
         this.city = city;
     }
 
+    public String getState() {
+        return state;
+    }
+
     public void setState(String state) {
         this.state = state;
+    }
+
+    public int getZipcode() {
+        return zipcode;
     }
 
     public void setZipcode(int zipcode) {
         this.zipcode = zipcode;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public void setEmail(String email) {
