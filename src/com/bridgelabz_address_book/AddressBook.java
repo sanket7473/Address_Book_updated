@@ -1,4 +1,5 @@
 package com.bridgelabz_address_book;
+
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
@@ -13,6 +14,53 @@ removeContacts() is to delete a contacts .
 public class AddressBook {
     //created a arraylist to store a object of class
     private static List<Contacts> Contactlist = new ArrayList<>();
+
+    public static void main(String[] args) {
+        System.out.println("Welcome to Address Book Java Functionality ");
+        System.out.println("Added contacts with the firstname,lastname,address,city,state,zip,phone number and email");
+        AddressBook s1 = new AddressBook();
+        Scanner scanner = new Scanner(System.in);
+        do {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Menu: enter 1 - adding contact" + " " + "enter 2 - editing contact" + " " + "enter 3 - deleting contact" + " " + "enter 4 - to exit");
+            int options = scan.nextInt();
+            switch (options) {
+                case 1:
+                    //Called a method addContactsFromUserInput
+                    s1.addContactsFromUserInput();
+                    //called a method showContacts
+                    s1.showContacts();
+                    break;
+
+                case 2:
+                    System.out.println("Enter First Name to Search");
+                    String firstName = scanner.nextLine();
+                    System.out.println("Enter Last Name To Search:");
+
+                    String lastName = scanner.nextLine();
+                    //called a modifyContactByName method with the firstname and lastname.
+                    s1.modifyContactByName(firstName, lastName);
+                    break;
+
+                case 3:
+                    System.out.println("Enter First Name to Search");
+                    String firstName1 = scanner.nextLine();
+                    //called a removeContacts with firstName
+                    s1.removeContacts(firstName1);
+                    s1.showContacts();
+                    break;
+
+                case 4:
+                    System.exit(0);
+
+                default:
+                    System.out.println("sorry, invalid option");
+            }
+
+        } while (true);
+
+
+    }
 
     // addContactsFromUserInput To take a user input for contacts.
     public void addContactsFromUserInput() {
@@ -45,12 +93,17 @@ public class AddressBook {
         addContacts(newContact);
     }
 
-    // addContacts method to add the items in the arraylist.
+    /* addContacts method to add the items in the arraylist
+    * @param taking contact object as a parameter and adding it in the list
+     */
     private void addContacts(Contacts contact) {
         Contactlist.add(contact);
     }
 
-    //modifyContactByName() method is used to search first and last name and edit the contact
+    /*modifyContactByName() method is used to search first and last name and edit the contact
+    @param taking a firstname and lastname as a parameter to search and modify if found
+
+     */
     public void modifyContactByName(String firstName, String lastName) {
         Scanner scanner = new Scanner(System.in);
         for (Contacts contact : Contactlist) {
@@ -90,7 +143,10 @@ public class AddressBook {
         }
 
     }
-    //removeContacts() is used to remove from list.
+
+    /*removeContacts() is used to remove from list.
+    @param taking firstname1 to serach a first name
+     */
     public void removeContacts(String firstName1) {
         Iterator<Contacts> iterator = Contactlist.iterator();
         while (iterator.hasNext()) {
@@ -103,65 +159,16 @@ public class AddressBook {
             }
         }
     }
-    //showContacts method is used to display
-        private void showContacts ()
-        {
-            for (Contacts contacts : Contactlist) {
-                System.out.println(contacts.getFirstName() + " " + contacts.getLastName() + " " + contacts.getAddress() + " " + contacts.getCity() + " " + contacts.getState() + " " + contacts.getZipcode() + " " + contacts.getPhoneNumber() + " " + contacts.getEmail());
 
-            }
-            System.out.println("Contacts Displayed successfully");
-        }
-
-
-        public static void main (String[]args)
-
-        {
-            System.out.println("Welcome to Address Book Java Functionality ");
-            System.out.println("Added contacts with the firstname,lastname,address,city,state,zip,phone number and email");
-            AddressBook s1 = new AddressBook();
-            Scanner scanner = new Scanner(System.in);
-            do{
-                Scanner scan = new Scanner(System.in);
-                System.out.println("Menu: enter 1 - adding contact"+" "+"enter 2 - editing contact"+" "+"enter 3 - deleting contact"+" "+"enter 4 - to exit");
-                int options=scan.nextInt();
-                switch(options){
-                    case 1:
-                        //Called a method addContactsFromUserInput
-                        s1.addContactsFromUserInput();
-                        //called a method showContacts
-                        s1.showContacts();
-                        break;
-
-                    case 2:
-                        System.out.println("Enter First Name to Search");
-                        String firstName = scanner.nextLine();
-                        System.out.println("Enter Last Name To Search:");
-
-                        String lastName = scanner.nextLine();
-                        //called a modifyContactByName method with the firstname and lastname.
-                        s1.modifyContactByName(firstName, lastName);
-                        break;
-
-                    case 3:
-                        System.out.println("Enter First Name to Search");
-                        String firstName1 = scanner.nextLine();
-                        //called a removeContacts with firstName
-                        s1.removeContacts(firstName1);
-                        s1.showContacts();
-                        break;
-
-                    case 4:
-                        System.exit(0);
-
-                    default:
-                        System.out.println("sorry, invalid option");
-                }
-
-            } while(true);
-
+    /*showContacts method is used to display
+     */
+    private void showContacts() {
+        for (Contacts contacts : Contactlist) {
+            System.out.println(contacts.getFirstName() + " " + contacts.getLastName() + " " + contacts.getAddress() + " " + contacts.getCity() + " " + contacts.getState() + " " + contacts.getZipcode() + " " + contacts.getPhoneNumber() + " " + contacts.getEmail());
 
         }
-
+        System.out.println("Contacts Displayed successfully");
     }
+
+}
 
