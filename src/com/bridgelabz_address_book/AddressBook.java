@@ -3,13 +3,18 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
-//AddressBook class contains addContactsFromUserInput() addContacts() and showContacts() methods..
+/*
+* @desc:This class is used to do Operations on address book doing operations like add,modify,show,delete the contact lists.
+* AddressBook class is containing addContactsFromUserInput() modifyContactByName() and removeContacts() methods.
+* addContactsFromUserInput(): is adding contacts, modifyContactByName():searchinng the first name and last name name and modifying it
+removeContacts() is to delete a contacts .
+**/
+
 public class AddressBook {
     //created a arraylist to store a object of class
     private static List<Contacts> Contactlist = new ArrayList<>();
 
     // addContactsFromUserInput To take a user input for contacts.
-
     public void addContactsFromUserInput() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter First Name:");
@@ -98,30 +103,7 @@ public class AddressBook {
             }
         }
     }
-
-//    showContacts();
-
-
-//    public void removeContacts(String firstName1) {
-//        for (Contacts contact : Contactlist)
-//        {
-//            //It will check for valid firstname and lastname
-//            if (contact.getFirstName().equals(firstName1)) {
-//
-//                System.out.println("Contact deleted successfully");
-//                Contactlist.remove(contact);
-//            }
-//            else
-//            {
-//                System.out.println("Contact not found");
-//            }
-//
-//
-//        }
-//        showContacts();
-//    }
-
-        //showContacts method is used to display
+    //showContacts method is used to display
         private void showContacts ()
         {
             for (Contacts contacts : Contactlist) {
@@ -138,27 +120,45 @@ public class AddressBook {
             System.out.println("Welcome to Address Book Java Functionality ");
             System.out.println("Added contacts with the firstname,lastname,address,city,state,zip,phone number and email");
             AddressBook s1 = new AddressBook();
-            //Called a method addContactsFromUserInput
-            s1.addContactsFromUserInput();
-            //called a method showContacts
-            s1.showContacts();
-
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter First Name to Search");
-            String firstName = scanner.nextLine();
-            System.out.println("Enter Last Name To Search:");
+            do{
+                Scanner scan = new Scanner(System.in);
+                System.out.println("Menu: enter 1 - adding contact"+" "+"enter 2 - editing contact"+" "+"enter 3 - deleting contact"+" "+"enter 4 - to exit");
+                int options=scan.nextInt();
+                switch(options){
+                    case 1:
+                        //Called a method addContactsFromUserInput
+                        s1.addContactsFromUserInput();
+                        //called a method showContacts
+                        s1.showContacts();
+                        break;
 
-            String lastName = scanner.nextLine();
-            //called a modifyContactByName method with the firstname and lastname.
-            s1.modifyContactByName(firstName, lastName);
+                    case 2:
+                        System.out.println("Enter First Name to Search");
+                        String firstName = scanner.nextLine();
+                        System.out.println("Enter Last Name To Search:");
 
-            System.out.println("Enter First Name to Search");
-            String firstName1 = scanner.nextLine();
-            //called a removeContacts with firstName
-            s1.removeContacts(firstName1);
+                        String lastName = scanner.nextLine();
+                        //called a modifyContactByName method with the firstname and lastname.
+                        s1.modifyContactByName(firstName, lastName);
+                        break;
 
-            //Displayed a contacts
-            s1.showContacts();
+                    case 3:
+                        System.out.println("Enter First Name to Search");
+                        String firstName1 = scanner.nextLine();
+                        //called a removeContacts with firstName
+                        s1.removeContacts(firstName1);
+                        s1.showContacts();
+                        break;
+
+                    case 4:
+                        System.exit(0);
+
+                    default:
+                        System.out.println("sorry, invalid option");
+                }
+
+            } while(true);
 
 
         }
