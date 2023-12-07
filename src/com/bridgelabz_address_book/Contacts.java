@@ -3,8 +3,8 @@ package com.bridgelabz_address_book;
 
 
 /*
- *Contacts class is containing firstname,lastname,address,city,state,zip,phone number and email.
- *
+ *@Desc:Contacts class is containing firstname,lastname,address,city,state,zip,phone number and email.
+ *Used get set method to get the data and the set the data
  **/
 public class Contacts {
 
@@ -17,7 +17,9 @@ public class Contacts {
     private String phoneNumber;
     private String email;
 
-    //Initialized the contacts values
+    /*
+    * Contacts constructor is initializing a data.
+     */
     public Contacts(String firstName, String lastName, String address, String city, String state, int zipcode, String phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;

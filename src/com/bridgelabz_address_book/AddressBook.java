@@ -9,6 +9,7 @@ import java.util.Iterator;
 * AddressBook class is containing addContactsFromUserInput() modifyContactByName() and removeContacts() methods.
 * addContactsFromUserInput(): is adding contacts, modifyContactByName():searchinng the first name and last name name and modifying it
 removeContacts() is to delete a contacts .
+*
 **/
 
 public class AddressBook {
@@ -20,6 +21,10 @@ public class AddressBook {
         System.out.println("Added contacts with the firstname,lastname,address,city,state,zip,phone number and email");
         AddressBook s1 = new AddressBook();
         Scanner scanner = new Scanner(System.in);
+        /*
+        Added a do while loop to add a multiple contacts.
+        */
+
         do {
             Scanner scan = new Scanner(System.in);
             System.out.println("Menu: enter 1 - adding contact" + " " + "enter 2 - editing contact" + " " + "enter 3 - deleting contact" + " " + "enter 4 - to exit");
