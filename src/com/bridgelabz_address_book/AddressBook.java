@@ -236,12 +236,12 @@ public class AddressBook {
         }
 
     }
+    /*
+    *@Desc: showaddressBookByCity() method to search a person in a given city name
+    * @param: cityName parameter is to get the city name from the multiple address book
+     */
     public  void showaddressBookByCity(String cityName)
     {
-//           for( List<Contacts>addressBoo_1:addMultiple.values())
-//            {
-//
-//            }
         addMultiple.entrySet().stream()
                 .filter(entry -> {
                     String key = entry.getKey(
@@ -261,7 +261,8 @@ public class AddressBook {
                             .filter(city -> city.getCity().equals(cityName))
                             .forEach(contact -> {
                                 // Assuming Contacts class has a getFirstName() method
-//                                System.out.println("Person's Name: " + contact.getFirstName());
+                                System.out.println("Person's First Name: " + contact.getFirstName());
+                                System.out.println("Person's Last Name: " + contact.getLastName());
                             });
                 });
     }
