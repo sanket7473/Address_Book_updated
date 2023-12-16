@@ -23,20 +23,23 @@ public class MultipleAddressBookHashMap extends AddressBook {
     public void multipleBook() {
         do {
 
-            System.out.println("Menu: enter 1 - adding multiple address book" + " " + "enter 2 - editing multiple address book" + " " + "enter 3 - deleting multiple address book" + " " + "enter 4 - to show address book" + "" + " enter 5-to exit");
+            System.out.println("Menu: enter 1 - adding multiple address book" + " " + "enter 2 - Searching a person by name of city" + " " + "enter 3 - deleting multiple address book" + " " + "enter 4 - to show address book" + "" + " enter 5-to exit");
             int option = sc.nextInt();
             switch (option) {
                 case 1:
                     addAddressBook();
                     break;
                 case 2:
+                    System.out.println("Enter a city name to serach");
+                    String name=sc.next();
+                    multipleAddressBookHashMap.showaddressBookByCity(name);
                     break;
                 case 3:
                     break;
                 case 4:
                     System.out.println("Enter a name of address book to search");
-                    String name = sc.next();
-                    multipleAddressBookHashMap.showAddressBook(name);
+                    String name_city = sc.next();
+                    multipleAddressBookHashMap.showAddressBook(name_city);
                     break;
                 case 5:
                     a = false;
@@ -51,6 +54,9 @@ public class MultipleAddressBookHashMap extends AddressBook {
         for (Contacts c : addressBook) {
             System.out.println(c.toString());
         }
+    }
+
+
 
 //        for (Map.Entry <String,List<Contacts>>m:addMultiple.entrySet()) {
 //            System.out.println(m.getKey());
@@ -62,4 +68,3 @@ public class MultipleAddressBookHashMap extends AddressBook {
 //        }
 
     }
-}
