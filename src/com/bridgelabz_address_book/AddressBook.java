@@ -266,6 +266,18 @@ public class AddressBook {
                             });
                 });
     }
+    /*
+    * To display the count of the person in a given city .
+    * @countPersoninCity is a city name to display a total count of person in a search city.
+     */
+    public long countByCity(String countPersoninCity)
+    {
+        return addMultiple.entrySet().stream()
+                .flatMap(entry -> entry.getValue().stream())
+                .filter(contact -> contact.getCity().equals(countPersoninCity))
+                .count();
+
+    }
 
 }
 
