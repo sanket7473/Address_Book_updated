@@ -84,6 +84,17 @@ public class AddressBook {
 
 
     }
+//    public void serchByCity()
+//    {
+//        Scanner sc=new Scanner(System.in);
+//        String cityName=sc.next();
+//        System.out.println("Enter a city to search");
+//
+//        Contactlist.stream().filter(contacts -> contacts.getCity().equals(cityName)).forEach(contact -> {
+//            // Display or process the contact data here
+//            System.out.println(contact);
+//        });
+//    }
 
     /*modifyContactByName() method is used to search first and last name and edit the contact
     @param taking a firstname and lastname as a parameter to search and modify if found
@@ -166,7 +177,7 @@ public class AddressBook {
 
         do {
             Scanner scan = new Scanner(System.in);
-            System.out.println("Menu: enter 1 - adding contact" + " " + "enter 2 - editing contact" + " " + "enter 3 - deleting contact" + " " + "enter 4 - to exit");
+            System.out.println("Menu: enter 1 - adding contact" + " " + "enter 2 - editing contact" + " " + "enter 3 - deleting contact" + " " + "enter 4 to exit ");
             int options = scan.nextInt();
             switch (options) {
                 case 1:
@@ -224,6 +235,35 @@ public class AddressBook {
 //        addressBook.editDeleteContact();
         }
 
+    }
+    public  void showaddressBookByCity(String cityName)
+    {
+//           for( List<Contacts>addressBoo_1:addMultiple.values())
+//            {
+//
+//            }
+        addMultiple.entrySet().stream()
+                .filter(entry -> {
+                    String key = entry.getKey(
+
+                    );
+                    List<Contacts> contacts = entry.getValue();
+                    System.out.println("Key: " + key);
+
+                    // Use anyMatch to check if any contact has the specified city
+                    return contacts.stream().anyMatch(city -> city.getCity().equals(cityName));
+                }).forEach(entry->
+                {
+                    String key = entry.getKey();
+                    List<Contacts> contacts = entry.getValue();
+                    System.out.println("Contacts for city " + cityName + " in key " + key + ":");
+                    contacts.stream()
+                            .filter(city -> city.getCity().equals(cityName))
+                            .forEach(contact -> {
+                                // Assuming Contacts class has a getFirstName() method
+//                                System.out.println("Person's Name: " + contact.getFirstName());
+                            });
+                });
     }
 
 }
