@@ -237,8 +237,9 @@ public class AddressBook {
 
     }
     /*
-    *@Desc: showaddressBookByCity() method to search a person in a given city name
-    * @param: cityName parameter is to get the city name from the multiple address book
+     *@Desc: showaddressBookByCity() method to search a person in a given city name
+     * @param: cityName parameter is to get the city name from the multiple address book
+
      */
     public  void showaddressBookByCity(String cityName)
     {
@@ -267,8 +268,8 @@ public class AddressBook {
                 });
     }
     /*
-    * To display the count of the person in a given city .
-    * @countPersoninCity is a city name to display a total count of person in a search city.
+     * To display the count of the person in a given city .
+     * @countPersoninCity is a city name to display a total count of person in a search city.
      */
     public long countByCity(String countPersoninCity)
     {
@@ -277,7 +278,20 @@ public class AddressBook {
                 .filter(contact -> contact.getCity().equals(countPersoninCity))
                 .count();
 
+
+    /*
+     *@Desc:  Sort the all the record based on the first name of the person  .
+     * @sortByName is a city name to display a sorted records.
+     */
+    public void sortByName() {
+        addMultiple.entrySet().stream()
+                .flatMap(entry -> entry.getValue().stream())
+                .sorted(Comparator.comparing(Contacts::getFirstName))
+                .forEach(contact -> {
+                    System.out.println("Sorted record with persons first name: " + contact);
+                });
+
     }
 
-}
 
+}

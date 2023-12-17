@@ -18,7 +18,7 @@ public class Contacts {
     private String email;
 
     /*
-    * Contacts constructor is initializing a data.
+     * Contacts constructor is initializing a data.
      */
     public Contacts(String firstName, String lastName, String address, String city, String state, int zipcode, String phoneNumber, String email) {
         this.firstName = firstName;
@@ -116,3 +116,4 @@ public class Contacts {
                 '}';
     }
 }
+
