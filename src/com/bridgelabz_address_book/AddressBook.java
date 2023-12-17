@@ -237,6 +237,16 @@ public class AddressBook {
 
     }
     /*
+     * showAddressBook() is a method to display a multiple address book data.
+     * @param : name parameter is containing a name of address book.
+     */
+    public  void showAddressBook(String name) {
+        List<Contacts> addressBook = addMultiple.get(name);
+        for (Contacts c : addressBook) {
+            System.out.println(c.toString());
+        }
+    }
+    /*
      *@Desc: showaddressBookByCity() method to search a person in a given city name
      * @param: cityName parameter is to get the city name from the multiple address book
 
@@ -293,5 +303,14 @@ public class AddressBook {
 
     }
 
-
+    /*
+    *@Desc: sortByCityState() is a sorting a contacts by city and state name.
+    *
+     */
+    public void sortByCityState()
+    {
+        addMultiple.entrySet().stream().flatMap(entry->entry.getValue().stream()).sorted(Comparator.comparing(Contacts::getCity).thenComparing(Contacts::getState)).forEach(contacts -> {
+            System.out.println(" Sorted record with the city and state name " +contacts);
+        });
+    }
 }
