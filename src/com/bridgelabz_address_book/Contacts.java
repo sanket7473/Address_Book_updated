@@ -18,7 +18,7 @@ public class Contacts {
     private String email;
 
     /*
-    * Contacts constructor is initializing a data.
+     * Contacts constructor is initializing a data.
      */
     public Contacts(String firstName, String lastName, String address, String city, String state, int zipcode, String phoneNumber, String email) {
         this.firstName = firstName;
@@ -100,5 +100,19 @@ public class Contacts {
     //setEmail is to set the email address
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Contacts{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zipcode=" + zipcode +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
