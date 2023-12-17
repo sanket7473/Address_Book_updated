@@ -239,6 +239,7 @@ public class AddressBook {
     /*
      *@Desc: showaddressBookByCity() method to search a person in a given city name
      * @param: cityName parameter is to get the city name from the multiple address book
+
      */
     public  void showaddressBookByCity(String cityName)
     {
@@ -277,7 +278,7 @@ public class AddressBook {
                 .filter(contact -> contact.getCity().equals(countPersoninCity))
                 .count();
 
-    }
+
     /*
      *@Desc:  Sort the all the record based on the first name of the person  .
      * @sortByName is a city name to display a sorted records.
@@ -289,6 +290,7 @@ public class AddressBook {
                 .forEach(contact -> {
                     System.out.println("Sorted record with persons first name: " + contact);
                 });
+
     }
 
 

@@ -25,8 +25,8 @@ public class MultipleAddressBookHashMap extends AddressBook {
 
     public void multipleBook() {
         do {
-
             System.out.println("Menu: enter 1 - adding multiple address book" + " " + "enter 2 - Searching a person by name of city" + " " + "enter 3 - count of person by city names" + " " + "enter 4 - to show address book" + " " + " enter 5- Display a city by sorting a first name"+" " +" enter 6- to exit");
+
             int option = sc.nextInt();
             switch (option) {
                 case 1:
@@ -69,3 +69,4 @@ public class MultipleAddressBookHashMap extends AddressBook {
     }
 
 }
+
